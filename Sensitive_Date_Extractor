@@ -107,7 +107,7 @@ class BurpExtender(IBurpExtender, IHttpListener):
                     if unique_matches:
                         issue_details[key] = unique_matches
 
-                issue_details_str = "<br>".join(["%s: %s" % (key, ', '.join(matches)) for key, matches in issue_details.items()])
+                issue_details_str = "<br>".join(["%s: %s<br>" % (key, ', '.join(matches)) for key, matches in issue_details.items()])
                 issue = CustomScanIssue(messageInfo.getHttpService(),
                                         self._helpers.analyzeRequest(messageInfo).getUrl(),
                                         [messageInfo],
