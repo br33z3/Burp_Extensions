@@ -101,12 +101,18 @@ class BurpExtender(IBurpExtender, IHttpListener):
                 
                 self._reported_issues.add(issue_url)
 
-                issue_details = "<br>".join(["%s: %s" % (key, ', '.join(matches)) for key, matches in matched_data.items()])
+                issue_details = {}
+                for key, matches in matched_data.items():
+                    unique_matches = list(set(matches))
+                    if unique_matches:
+                        issue_details[key] = unique_matches
+
+                issue_details_str = "<br>".join(["%s: %s" % (key, ', '.join(matches)) for key, matches in issue_details.items()])
                 issue = CustomScanIssue(messageInfo.getHttpService(),
                                         self._helpers.analyzeRequest(messageInfo).getUrl(),
                                         [messageInfo],
                                         "Sensitive Data Disclosure",
-                                        "The response contains the following sensitive data:<br>%s" % issue_details,
+                                        "The response contains the following sensitive data:<br>%s" % issue_details_str,
                                         "High")
                 self._callbacks.addScanIssue(issue)
 
