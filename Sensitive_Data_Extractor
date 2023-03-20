@@ -1,9 +1,15 @@
+# Author: Berk Can Geyikci
+# Title:  Sensitive_Data_Extractor Burp Suite Custom Extension
+# Tested: Burp Suite Pro 2023 2.3 with Jython 2.7.3
+# Created on: 2023-03-20
+# Last modified: 2023-03-20
+
 from burp import IBurpExtender
 from burp import IHttpListener
 from burp import IScanIssue
 from java.net import URL
 import re
-
+#@Author
 class BurpExtender(IBurpExtender, IHttpListener):
     def registerExtenderCallbacks(self, callbacks):
         self._callbacks = callbacks
