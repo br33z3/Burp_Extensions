@@ -22,13 +22,22 @@ Sensitive Data Extractor is a Burp Suite extension created to automatically iden
   - Slack Tokens
   - Many more...
 
-## Usage
+## Requirements
 
-1. Ensure you have Burp Suite Professional installed.
-2. Install the Jython environment for Burp Suite.
-3. Load the provided script (`Sensitive_Data_Extractor.py`) in the Extender tab of Burp Suite.
-4. Configure the extension to run as an HTTP listener.
-5. The extension will automatically analyze HTTP responses and report any detected sensitive data in the Scanner issues tab.
+- Burp Suite Professional 2023 2.3 or later
+- Jython 2.7.3 or later
+
+## Installation and Usage
+
+1. Download and install [Burp Suite Professional](https://portswigger.net/burp/pro).
+2. Download and install [Jython](https://www.jython.org/download).
+3. In Burp Suite, navigate to the Extender tab, then click on the Options tab.
+4. Under Python Environment, locate the Jython standalone JAR file you installed previously.
+5. Go to the Extensions tab in the Extender and click on the Add button.
+6. In the Add extension dialog, set the Extension type to Python, and select the `Sensitive_Data_Extractor.py` script.
+7. Click the Next button to load the extension.
+
+Once the extension is loaded, it will automatically analyze HTTP responses and report any detected sensitive data in the Scanner issues tab.
 
 ## Limitations
 
