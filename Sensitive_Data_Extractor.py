@@ -9,7 +9,7 @@ from burp import IHttpListener
 from burp import IScanIssue
 from java.net import URL
 import re
-#@Author
+
 class BurpExtender(IBurpExtender, IHttpListener):
     def registerExtenderCallbacks(self, callbacks):
         self._callbacks = callbacks
